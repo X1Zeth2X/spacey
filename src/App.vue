@@ -1,61 +1,53 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
+  <v-app id="app">
+    <Nav/>
 
     <v-content>
-      <HelloWorld/>
+      <v-scale-transition mode="out-in">
+        <router-view class="content"></router-view>
+      </v-scale-transition>
     </v-content>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import Component from 'vue-class-component';
 
-export default Vue.extend({
-  name: 'App',
+import Nav from '@/components/Nav.vue';
 
+@Component({
   components: {
-    HelloWorld,
+    Nav,
   },
-
-  data: () => ({
-    //
-  }),
-});
+})
+export default class App extends Vue {}
 </script>
+
+<style lang="scss">
+#app {
+  font-family: 'Fira Sans', sans-serif;
+
+  .content {
+    padding-top: 6rem;
+  }
+
+  .auto {
+    margin: 0 auto;
+  }
+
+  .b-card {
+    border-radius: 1em;
+  }
+
+  a {
+    text-decoration: none;
+    color: #FFFE00;
+  }
+
+  background: url('./assets/Background.svg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+</style>
