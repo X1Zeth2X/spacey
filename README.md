@@ -1,4 +1,8 @@
-# spacey
+# Space-yyyy
+
+## What is this?
+A space web app that uses NASA's OPEN APIs that tell you cool and awesome information
+or facts about space. Currently minimal at the moment but will soon have more cool features!
 
 ## Project setup
 ```
