@@ -4,9 +4,9 @@
     dense
     height="70"
     absolute
-    class="mt-4 auto w-80-l w-90"
+    class="mt-4 auto w-80-l w-80-md w-90"
   >
-    <v-toolbar-title>
+    <v-toolbar-title v-show="$vuetify.breakpoint.mdAndUp">
       <v-btn icon large
         @click="easterEgg"
       >
@@ -21,8 +21,10 @@
       class="font-weight-black ml2"
       :disabled="$route.name === 'home'"
       @click="$router.push({ name: 'home' })"
+      :icon="$vuetify.breakpoint.smAndDown"
     >
-      Home
+      <v-icon large v-if="$vuetify.breakpoint.smAndDown">mdi-home-variant</v-icon>
+      <span v-else>Home</span>
     </v-btn>
 
 
