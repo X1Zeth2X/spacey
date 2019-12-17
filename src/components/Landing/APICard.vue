@@ -36,6 +36,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
+import { Action } from 'vuex-class';
 
 @Component
 export default class APICard extends Vue {
@@ -46,10 +47,9 @@ export default class APICard extends Vue {
     localStorage.setItem('apiKey', this.apiKey.replace(/\s+/g, ''));
     // Clear input key
     this.apiKey = '';
-    // Re-route to main NASA board.
-    this.$router.push({
-      name: 'main',
-    });
+
+    // eslint-disable-next-line
+    location.reload();
   }
 }
 </script>
