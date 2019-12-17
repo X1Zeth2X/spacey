@@ -9,7 +9,6 @@
       <p>
         To get the full experience please enter your NASA Open API Key.
         Which can be acquired <a href="https://api.nasa.gov/" target="_blank">here</a>.
-        (Currently placeholders, don't enter an API key yet.)
       </p>
 
       <v-text-field
