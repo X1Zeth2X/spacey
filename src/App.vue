@@ -38,6 +38,10 @@ export default class App extends Vue {}
 
   .b-card {
     border-radius: 1em;
+    background: #3B1580;
+    background: -webkit-linear-gradient(bottom right, #6E146F, #3B1580);
+    background: -moz-linear-gradient(bottom right, #6E146F, #3B1580);
+    background: linear-gradient(to top left, #6E146F, #3B1580);
   }
 
   a {
@@ -45,9 +49,12 @@ export default class App extends Vue {}
     color: #FFFE00;
   }
 
-  background: url('./assets/Background.svg');
-  background-size: auto;
+  background-image: url('./assets/Background.svg');
+  background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
+
+  -webkit-transition: background-image 0.2s ease-in-out;
+  transition: background-image 0.2s ease-in-out;
 }
 </style>
