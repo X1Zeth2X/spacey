@@ -1,15 +1,20 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
+import Vuex, { StoreOptions } from 'vuex';
+import { RootState } from './types';
+
+// Import modules
+import { apod } from './modules/apod/index';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store: StoreOptions<RootState> = {
   state: {
-  },
-  mutations: {
-  },
-  actions: {
+    version: '0.6.9',
   },
   modules: {
+    // Register modules
+    apod,
   },
-});
+};
+
+export default new Vuex.Store<RootState>(store);
