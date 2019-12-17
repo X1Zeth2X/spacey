@@ -55,6 +55,7 @@ export default class Nav extends Vue {
 
   public easterEgg() {
     if (this.invaderClick === 5) {
+      // eslint-disable-next-line
       alert('Stop that hooman!\nThat isn\'t funny 😡');
       this.invaderClick = 0;
     } else {
