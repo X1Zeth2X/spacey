@@ -19,7 +19,7 @@
       color="#A581ED"
       rounded
       class="font-weight-black ml2"
-      :disabled="$route.name === 'home'"
+      :disabled="$route.name === 'home' || $route.name === 'main'"
       @click="$router.push({ name: 'home' })"
       :icon="$vuetify.breakpoint.smAndDown"
     >
