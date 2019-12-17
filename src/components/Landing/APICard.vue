@@ -43,7 +43,7 @@ export default class APICard extends Vue {
 
   public submitKey() {
     // Save the API Key
-    localStorage.setItem('apiKey', this.apiKey);
+    localStorage.setItem('apiKey', this.apiKey.replace(/\s+/g, ''));
     // Clear input key
     this.apiKey = '';
     // Re-route to main NASA board.
