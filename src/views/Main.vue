@@ -1,6 +1,10 @@
 <template>
 <div id="main">
-  This is the main view.
+  <div class="ph4-md ph6-l">
+    <v-container>
+      <APOD/>
+    </v-container>
+  </div>
 </div>
 </template>
 
@@ -8,7 +12,13 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
-@Component
+import APOD from '@/components/Main/APOD.vue';
+
+@Component({
+  components: {
+    APOD,
+  },
+})
 export default class Main extends Vue {
   /*
   Do something to check if the APIKey is valid.
