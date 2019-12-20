@@ -1,11 +1,10 @@
 <template>
-<div id="about" class="text-center">
+<div id="about" class="tc-ns w-50-l w-60-md w-90 auto">
   <h1 class="display-3 font-weight-bold mb2">
     About
-
   </h1>
 
-  <p class="display-1 w-50-l w-60-md w-90 auto">
+  <p class="display-1 auto tc-ns">
     This is for a cool friend of mine!
     <br>
     <a href="https://www.vecteezy.com/free-vector/space" target="_blank">Space Vectors by Vecteezy</a>
