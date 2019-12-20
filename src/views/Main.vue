@@ -2,6 +2,8 @@
 <div id="main">
   <div class="ph4-md ph6-l">
     <v-container>
+      <ViewController/>
+
       <APOD v-if="APODReady"/>
 
       <div class="text-center mt4" v-else>
@@ -27,6 +29,7 @@ import Component from 'vue-class-component';
 
 import { Getter, Action } from 'vuex-class';
 import APOD from '@/components/Main/APOD.vue';
+import ViewController from '@/components/Main/ViewController.vue';
 
 interface Loading {
   msg: string,
@@ -36,6 +39,7 @@ interface Loading {
 @Component({
   components: {
     APOD,
+    ViewController,
   },
 })
 export default class Main extends Vue {
