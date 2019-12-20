@@ -57,10 +57,17 @@ export default class Nav extends Vue {
     if (this.invaderClick === 5) {
       // eslint-disable-next-line
       alert('Stop that hooman!\nThat isn\'t funny 😡');
+    } else if (this.invaderClick === 10) {
+      // eslint-disable-next-line
+      alert(`
+      Clothes wear and things fade overtime,
+      but imo one of the best gifts you can give a person is
+      information and everything related with love :D`);
+
       this.invaderClick = 0;
-    } else {
-      this.invaderClick += 1;
     }
+
+    this.invaderClick += 1;
   }
 
   public navButtons: object[] = [
