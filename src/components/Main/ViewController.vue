@@ -29,7 +29,6 @@ export default class ViewController extends Vue {
   public command: string = '';
 
   public runCommand() {
-    console.log(this.command);
     this.command = '';
   }
 }
