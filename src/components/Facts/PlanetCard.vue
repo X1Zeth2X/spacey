@@ -2,7 +2,6 @@
 <v-card
   hover
   class="b-card"
-  @click="viewInfo"
 >
   <v-img
     :src="object.image"
@@ -41,9 +40,5 @@ import { Prop } from 'vue-property-decorator';
 @Component
 export default class PlanetCard extends Vue {
   @Prop() public object!: any;
-
-  public viewInfo() {
-    console.log(this.object.name);
-  }
 }
 </script>
