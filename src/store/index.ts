@@ -4,6 +4,7 @@ import { RootState } from './types';
 
 // Import modules
 import { apod } from './modules/apod/index';
+import { dialog } from './modules/dialogs/index';
 
 Vue.use(Vuex);
 
@@ -14,6 +15,7 @@ const store: StoreOptions<RootState> = {
   modules: {
     // Register modules
     apod,
+    dialog,
   },
 };
 
