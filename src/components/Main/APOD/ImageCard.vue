@@ -7,14 +7,13 @@
     <a :href="hdurl" target="_blank">
       <v-img
         :src="url"
-        :lazy-src="url"
       >
         <template v-slot:placeholder>
           <v-skeleton-loader
             tile
             transition="scale-transition"
             type="image"
-            class="h-100"
+            class="fill-height ma-0"
           ></v-skeleton-loader>
         </template>
       </v-img>
