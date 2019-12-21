@@ -1,5 +1,7 @@
 <template>
 <div id="main">
+  <MainHelp/>
+
   <div class="ph4-md ph6-l">
     <v-container>
       <ViewController/>
@@ -28,8 +30,10 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 
 import { Getter, Action } from 'vuex-class';
+
 import APOD from '@/components/Main/APOD.vue';
 import ViewController from '@/components/Main/ViewController.vue';
+import MainHelp from '@/components/Dialogs/MainHelp.vue';
 
 interface Loading {
   msg: string,
@@ -40,15 +44,10 @@ interface Loading {
   components: {
     APOD,
     ViewController,
+    MainHelp,
   },
 })
 export default class Main extends Vue {
-  /*
-  Do something to check if the APIKey is valid.
-  If the API Key is not valid then remove the apiKey
-  from localStorage and kick the user back home,
-  then alert them about the invalid key.
-  */
   @Action('getAPOD', { namespace: 'apod' }) public getAPOD: any;
 
   @Getter('apod', { namespace: 'apod' }) public apod: any;
