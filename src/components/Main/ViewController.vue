@@ -4,6 +4,8 @@
     filled
     label="Please enter a command:"
     placeholder="user@spacey:~$ "
+    v-model="command"
+    @keyup.enter="runCommand"
   >
     <template v-slot:append-outer>
       <v-btn icon class="info mr2" elevation="5">
@@ -23,5 +25,12 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 
 @Component
-export default class ViewController extends Vue {}
+export default class ViewController extends Vue {
+  public command: string = '';
+
+  public runCommand() {
+    console.log(this.command);
+    this.command = '';
+  }
+}
 </script>
