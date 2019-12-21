@@ -3,9 +3,9 @@
     <Nav/>
 
     <v-content>
-      <v-scale-transition mode="out-in">
+      <v-scroll-x-reverse-transition mode="out-in">
         <router-view class="content"></router-view>
-      </v-scale-transition>
+      </v-scroll-x-reverse-transition>
     </v-content>
   </v-app>
 </template>
