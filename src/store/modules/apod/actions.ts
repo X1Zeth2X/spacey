@@ -12,7 +12,7 @@ export const actions: ActionTree<APODState, RootState> = {
       const apodData = await APODService.getAPOD();
       commit('requestSuccess', apodData);
 
-      return apodData;
+      return true;
     } catch (error) {
       if (error instanceof APODError) {
         commit('apodError', error.message);
