@@ -1,5 +1,5 @@
 <template>
-<div id="landing" class="text-center">
+<div id="landing" class="text-center bg-space">
   <h1 class="display-3 font-weight-bold mb2">
     Space-y
   </h1>

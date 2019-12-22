@@ -1,5 +1,5 @@
 <template>
-<div id="about" class="tc-ns w-50-l w-60-md w-90 auto">
+<div id="about" class="tc-ns w-50-l w-60-md w-90 auto bg-space">
   <h1 class="display-3 font-weight-bold mb2">
     About
   </h1>

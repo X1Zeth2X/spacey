@@ -1,5 +1,5 @@
 <template>
-<div id="facts" class="text-center mb4">
+<div id="facts" class="text-center bg-space">
   <h1 class="display-2 font-weight-bold mb2">
     Cool Space Fact 👽
   </h1>
