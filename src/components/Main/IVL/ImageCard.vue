@@ -37,11 +37,5 @@ export default class ImageCard extends Vue {
   @Prop() collection!: object;
 
   @Prop() index!: number;
-
-  public isActive: boolean = false;
-
-  public viewCollection() {
-    console.log(this.collection);
-  }
 }
 </script>
