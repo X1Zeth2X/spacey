@@ -58,8 +58,8 @@ export default class MainHelp extends Vue {
       desc: 'shows the Astronomy Picture of the Day.',
     },
     {
-      name: 'cmd',
-      desc: 'Another sample command',
+      name: 'ivl',
+      desc: 'NASA\'s Image and Video library.',
     },
   ]
 }
