@@ -49,8 +49,6 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Getter, Action } from 'vuex-class';
 
-import InfiniteLoading from 'vue-infinite-loading';
-
 import Search from './IVL/Search.vue';
 import ImageCard from './IVL/ImageCard.vue';
 import ViewMode from './IVL/ViewMode.vue';
@@ -63,7 +61,6 @@ const namespace: string = 'ivl';
   components: {
     Search,
     ImageCard,
-    InfiniteLoading,
     ViewMode,
   },
 })
