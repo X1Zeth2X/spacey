@@ -27,7 +27,6 @@ export default class App extends Vue {}
 <style lang="scss">
 #app {
   font-family: 'Fira Sans', sans-serif;
-  background-color: #26136E;
 
   .content {
     padding-top: 6rem;
