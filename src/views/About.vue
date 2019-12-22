@@ -5,7 +5,9 @@
   </h1>
 
   <p class="display-1 auto tc-ns">
-    This is for a cool friend of mine!
+    This is for a cool friend of mine!,
+    <br>
+    Also, props to Kyle for helping me design this.
     <br>
     <a href="https://www.vecteezy.com/free-vector/space" target="_blank">Space Vectors by Vecteezy</a>
     <br>
