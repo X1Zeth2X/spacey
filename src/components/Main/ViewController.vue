@@ -5,7 +5,7 @@
     label="Please enter a command:"
     placeholder="user@spacey:~$ "
     v-model="command"
-    @keyup.enter="runCommand"
+    @keyup.enter="runCMD"
   >
     <template v-slot:append-outer>
       <v-btn
@@ -17,7 +17,7 @@
         <v-icon>mdi-help</v-icon>
       </v-btn>
 
-      <v-btn icon class="warning" elevation="5">
+      <v-btn icon class="warning" elevation="5" disabled>
         <v-icon>mdi-camera-control</v-icon>
       </v-btn>
     </template>
@@ -29,6 +29,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Action } from 'vuex-class';
+import { Emit } from 'vue-property-decorator';
 
 const namespace: string = 'dialog';
 
@@ -38,7 +39,13 @@ export default class ViewController extends Vue {
 
   public command: string = '';
 
-  public runCommand() {
+  @Emit('executeCMD')
+  public executeCMD() {
+    return this.command;
+  }
+
+  public runCMD() {
+    this.executeCMD();
     this.command = '';
   }
 }
