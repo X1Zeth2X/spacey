@@ -1,25 +1,17 @@
 <template>
-<div id="main">
+<div id="main" :class="{'bg-space': currentView !== 1}">
   <MainHelp/>
 
   <div class="ph4-md ph6-l">
     <v-container>
-      <ViewController/>
+      <ViewController v-on:executeCMD="executeCMD"/>
 
-      <APOD v-if="APODReady"/>
+      <keep-alive>
+        <v-slide-x-transition mode="out-in">
+          <component :is="viewMode[currentView].component"></component>
+        </v-slide-x-transition>
+      </keep-alive>
 
-      <div class="text-center mt4" v-else>
-        <v-progress-circular
-          class="text-center"
-          indeterminate
-          size="50"
-          width="10"
-          :color="load.color"
-        ></v-progress-circular>
-        <p class="font-weight-black subheading mt2">
-          {{ load.msg }}
-        </p>
-      </div>
     </v-container>
   </div>
 </div>
@@ -35,9 +27,9 @@ import APOD from '@/components/Main/APOD.vue';
 import ViewController from '@/components/Main/ViewController.vue';
 import MainHelp from '@/components/Dialogs/MainHelp.vue';
 
-interface Loading {
-  msg: string,
-  color: string,
+interface Command {
+  name: string;
+  component: any;
 }
 
 @Component({
@@ -52,36 +44,27 @@ export default class Main extends Vue {
 
   @Getter('apod', { namespace: 'apod' }) public apod: any;
 
-  public APODReady: boolean = false;
+  public currentView: number = 0;
 
-  public load: Loading = {
-    msg: 'Loading awesomeness...',
-    color: 'purple',
-  }
+  public viewMode: Command[] = [
+    {
+      name: 'apod',
+      component: APOD,
+    },
+    {
+      name: 'ivl',
+      // Lazy import IVL
+      component: () => import('@/components/Main/IVL.vue'),
+    },
+  ]
 
-  public created() {
-    if (this.apod === null) {
-      this.loadAPOD();
-    } else {
-      this.APODReady = true;
-    }
-  }
+  public executeCMD(cmd: string) {
+    const index = this.viewMode.map(
+      e => e.name,
+    ).indexOf(cmd);
 
-  public async loadAPOD() {
-    const info = await this.getAPOD();
-
-    if (info === false) {
-      this.load.msg = 'Invalid request, check API key.';
-      this.load.color = 'error';
-
-      localStorage.removeItem('apiKey');
-      setTimeout(() => {
-        this.$router.push({
-          name: 'home',
-        });
-      }, 3 * 1000);
-    } else {
-      this.APODReady = true;
+    if (index !== -1) {
+      this.currentView = index;
     }
   }
 }
