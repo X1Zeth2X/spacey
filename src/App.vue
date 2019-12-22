@@ -27,6 +27,7 @@ export default class App extends Vue {}
 <style lang="scss">
 #app {
   font-family: 'Fira Sans', sans-serif;
+  background-color: #26136E;
 
   .content {
     padding-top: 6rem;
@@ -49,12 +50,12 @@ export default class App extends Vue {}
     color: #FFFE00;
   }
 
-  background-image: url('./assets/Background.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100%;
-
-  -webkit-transition: background-image 0.2s ease-in-out;
-  transition: background-image 0.2s ease-in-out;
+  .bg-space {
+    background-image: url('./assets/Background.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+  }
 }
 </style>
