@@ -1,6 +1,21 @@
 <template>
   <v-card class="b-card" color="#835961" elevation="10">
     <v-card-title class="font-weight-bold">
+      <v-icon class="mr2">mdi-calendar</v-icon>
+      Published on {{ date }}
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon
+        >mdi-chevron-down
+        </v-icon>
+      </v-btn>
+    </v-card-title>
+
+    <v-divider></v-divider>
+
+    <v-card-title class="font-weight-bold">
     <v-icon class="mr2">mdi-telescope</v-icon>
       Details
     </v-card-title>
@@ -10,13 +25,6 @@
       <br>
       "{{ explanation }}"
     </v-card-text>
-
-    <v-divider></v-divider>
-
-    <v-card-title class="font-weight-bold">
-      <v-icon class="mr2">mdi-calendar</v-icon>
-      Published on {{ date }}
-    </v-card-title>
   </v-card>
 </template>
 
