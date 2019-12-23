@@ -5,7 +5,7 @@
     label="Please enter a command:"
     placeholder="user@spacey:~$ "
     v-model="command"
-    @keyup.enter="runCMD"
+    @keyup.enter="executeCMD"
   >
     <template v-slot:append-outer>
       <v-btn
@@ -41,11 +41,11 @@ export default class ViewController extends Vue {
 
   @Emit('executeCMD')
   public executeCMD() {
-    return this.command;
-  }
-
-  public runCMD() {
-    this.executeCMD();
+    this.$router.push({
+      query: {
+        view: this.command.replace(/\s+/g, ''),
+      },
+    });
     this.command = '';
   }
 }
