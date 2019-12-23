@@ -11,4 +11,8 @@ export const actions: ActionTree<DialogState, RootState> = {
   closeMainHelp({ commit }) {
     commit('closeMainHelp');
   },
+
+  toggleHDImage({ commit }) {
+    commit('toggleHDImage');
+  },
 };

@@ -7,4 +7,8 @@ export const getters: GetterTree<DialogState, RootState> = {
   mainHelp(state) {
     return state.mainhelp;
   },
+
+  hdImage(state) {
+    return state.hdImage;
+  },
 };

@@ -8,6 +8,7 @@ import { actions } from './actions';
 
 export const state: DialogState = {
   mainhelp: false,
+  hdImage: false,
 };
 
 const namespaced: boolean = true;

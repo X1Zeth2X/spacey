@@ -10,4 +10,8 @@ export const mutations: MutationTree<DialogState> = {
   openMainHelp(state) {
     state.mainhelp = true;
   },
+
+  toggleHDImage(state) {
+    state.hdImage = !state.hdImage;
+  },
 };
