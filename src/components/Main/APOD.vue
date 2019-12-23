@@ -44,7 +44,6 @@ import { Getter, Action } from 'vuex-class';
 import ImageCard from './APOD/ImageCard.vue';
 import DetailCard from './APOD/DetailCard.vue';
 import APODImage from '@/components/Dialogs/APODImage.vue';
-import CustomDate from './APOD/CustomDate.vue';
 
 const namespace: string = 'apod';
 
@@ -58,7 +57,6 @@ interface Loading {
     ImageCard,
     DetailCard,
     APODImage,
-    CustomDate,
   },
 })
 export default class APOD extends Vue {
