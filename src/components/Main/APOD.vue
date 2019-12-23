@@ -16,18 +16,20 @@
   </div>
 
   <v-row align="start" justify="space-between" v-else>
-    <v-col cols="12" xs="12" md="6">
-      <ImageCard
-        :hdurl="apod.hdurl"
-        :url="apod.url"
-        :copyright="apod.copyright"
-      />
-    </v-col>
-    <v-col cols="12" md="5">
+    <v-col cols="12" xs="12" md="5">
       <DetailCard
         :title="apod.title"
         :explanation="apod.explanation"
         :date="apod.date"
+      />
+    </v-col>
+
+    <v-col cols="12" md="6">
+      <ImageCard
+        :hdurl="apod.hdurl"
+        :url="apod.url"
+        :copyright="apod.copyright"
+        :type="apod.media_type"
       />
     </v-col>
   </v-row>
@@ -41,6 +43,8 @@ import { Getter, Action } from 'vuex-class';
 
 import ImageCard from './APOD/ImageCard.vue';
 import DetailCard from './APOD/DetailCard.vue';
+import APODImage from '@/components/Dialogs/APODImage.vue';
+import CustomDate from './APOD/CustomDate.vue';
 
 const namespace: string = 'apod';
 
@@ -53,6 +57,8 @@ interface Loading {
   components: {
     ImageCard,
     DetailCard,
+    APODImage,
+    CustomDate,
   },
 })
 export default class APOD extends Vue {
