@@ -4,7 +4,7 @@
 
   <div class="ph4-md ph6-l">
     <v-container>
-      <ViewController v-on:executeCMD="executeCMD"/>
+      <ViewController v-on:executeCMD="checkView"/>
 
       <keep-alive>
         <v-slide-x-transition mode="out-in">
@@ -46,6 +46,10 @@ export default class Main extends Vue {
 
   public currentView: number = 0;
 
+  public created() {
+    this.checkView();
+  }
+
   public viewMode: Command[] = [
     {
       name: 'apod',
@@ -58,13 +62,17 @@ export default class Main extends Vue {
     },
   ]
 
-  public executeCMD(cmd: string) {
-    const index = this.viewMode.map(
-      e => e.name,
-    ).indexOf(cmd);
+  public checkView() {
+    const mode: any = this.$route.query.view;
 
-    if (index !== -1) {
-      this.currentView = index;
+    if (mode !== null) {
+      const index = this.viewMode.map(
+        e => e.name,
+      ).indexOf(mode);
+
+      if (index !== -1) {
+        this.currentView = index;
+      }
     }
   }
 }
