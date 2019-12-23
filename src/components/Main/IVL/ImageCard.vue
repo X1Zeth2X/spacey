@@ -1,7 +1,6 @@
 <template>
   <v-card
     class="b-card mb2"
-    @click="viewCollection"
     v-if="collection.links !== undefined"
   >
     <v-img
