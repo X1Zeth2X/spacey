@@ -9,6 +9,7 @@
       <v-row
         align="start"
         justify="space-between"
+        class="pa3"
       >
 
         <v-col cols="12"
@@ -151,7 +152,7 @@ export default class IVLInfo extends Vue {
   background: #2b5876;  /* fallback for old browsers */
   background-image: linear-gradient(to left bottom, #413c63, #624672, #844f7b, #a6587f, #c5647e);
 
-  border-radius: 2em 2em 0 0;
+  border-radius: 3em 3em 0 0;
 
   .expansion-style {
     border-radius: 1em;
