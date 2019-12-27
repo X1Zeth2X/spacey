@@ -1,12 +1,15 @@
 <template>
 <div id="ivl">
   <Search v-on:updateFeed="updateFeed"/>
+
   <ViewMode
     :view="view"
     :metadata="feed.metadata"
     v-on:viewPopular="loadPopular"
     v-on:viewRecent="loadRecent"
   />
+
+  <IVLInfo/>
 
   <div class="text-center mt4"
     v-if="!ready"
@@ -38,11 +41,13 @@
       v-for="collection in items"
       :key="collection.data[0].nasa_id"
     >
-      <ImageCard :collection="collection"/>
+      <ImageCard
+        :collection="collection"
+      />
     </div>
   </masonry>
 </div>
-</template>
+</template>;
 
 <script lang="ts">
 import Vue from 'vue';
@@ -53,6 +58,8 @@ import Search from './IVL/Search.vue';
 import ImageCard from './IVL/ImageCard.vue';
 import ViewMode from './IVL/ViewMode.vue';
 
+import IVLInfo from '@/components/Dialogs/IVLInfo.vue';
+
 import { Collection } from '@/store/modules/ivl/types';
 
 const namespace: string = 'ivl';
@@ -62,6 +69,8 @@ const namespace: string = 'ivl';
     Search,
     ImageCard,
     ViewMode,
+
+    IVLInfo,
   },
 })
 export default class IVL extends Vue {
