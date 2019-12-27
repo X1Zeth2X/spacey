@@ -2,6 +2,7 @@
   <v-card
     class="b-card mb2"
     v-if="collection.links !== undefined"
+    @click="showInfo"
   >
     <v-img
       :src="collection.links[0].href"
@@ -25,8 +26,9 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import { Prop } from 'vue-property-decorator';
+import { Prop, Emit } from 'vue-property-decorator';
 
+import { Action } from 'vuex-class';
 import { Collection } from '@/store/modules/ivl/types';
 
 const namespace: string = 'ivl';
@@ -36,5 +38,14 @@ export default class ImageCard extends Vue {
   @Prop() collection!: object;
 
   @Prop() index!: number;
+
+  @Action('loadInfo', { namespace }) public loadInfo!: Function;
+
+  @Action('toggleIVLInfo', { namespace: 'dialog' }) public openInfo!: Function;
+
+  public showInfo() {
+    this.loadInfo(this.collection);
+    this.openInfo();
+  }
 }
 </script>
