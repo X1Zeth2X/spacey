@@ -14,4 +14,8 @@ export const mutations: MutationTree<DialogState> = {
   toggleHDImage(state) {
     state.hdImage = !state.hdImage;
   },
+
+  toggleIVLInfo(state) {
+    state.IVLInfo = !state.IVLInfo;
+  },
 };

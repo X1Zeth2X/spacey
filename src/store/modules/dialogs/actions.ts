@@ -15,4 +15,8 @@ export const actions: ActionTree<DialogState, RootState> = {
   toggleHDImage({ commit }) {
     commit('toggleHDImage');
   },
+
+  toggleIVLInfo({ commit }) {
+    commit('toggleIVLInfo');
+  },
 };

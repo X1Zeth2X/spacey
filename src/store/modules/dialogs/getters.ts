@@ -11,4 +11,8 @@ export const getters: GetterTree<DialogState, RootState> = {
   hdImage(state) {
     return state.hdImage;
   },
+
+  IVLInfo(state) {
+    return state.IVLInfo;
+  },
 };
