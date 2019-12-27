@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { MutationTree } from 'vuex';
-import { IVLState, Collection } from './types';
+import { IVLState, Collection, Info } from './types';
 
 export const mutations: MutationTree<IVLState> = {
   ivlRequest(state) {
@@ -13,6 +13,10 @@ export const mutations: MutationTree<IVLState> = {
     state.loading = false;
     state.error = true;
     state.errorMsg = errMsg;
+  },
+
+  loadInfo(state, info: Info) {
+    state.currentInfo = info;
   },
 
   requestSuccess(state, feed: Collection[]) {

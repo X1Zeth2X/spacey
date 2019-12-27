@@ -8,6 +8,8 @@ import { actions } from './actions';
 
 export const state: IVLState = {
   feed: [],
+  currentInfo: null,
+
   loading: false,
 
   error: false,

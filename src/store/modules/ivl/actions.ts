@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { ActionTree } from 'vuex';
-import { IVLState } from './types';
+import { IVLState, Info } from './types';
 import { RootState } from '@/store/types';
 import { IVLService, IVLError, SearchParams } from '@/services/ivl.service';
 
@@ -19,6 +19,10 @@ export const actions: ActionTree<IVLState, RootState> = {
       }
       return false;
     }
+  },
+
+  loadInfo({ commit }, info: Info) {
+    commit('loadInfo', info);
   },
 
   async getPopular({ commit }) {

@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { GetterTree } from 'vuex';
-import { IVLState, Collection } from './types';
+import { IVLState, Collection, Info } from './types';
 import { RootState } from '@/store/types';
 
 export const getters: GetterTree<IVLState, RootState> = {
@@ -10,5 +10,9 @@ export const getters: GetterTree<IVLState, RootState> = {
 
   loading(state): boolean {
     return state.loading;
+  },
+
+  currentInfo(state): Info | null {
+    return state.currentInfo;
   },
 };
