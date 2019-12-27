@@ -25,15 +25,12 @@
       </template>
     </v-img>
 
-    <div v-else class="deep-purple pa3 pv4">
-      <v-row align="center" justify="center" class="fill-height">
-        <a :href="url" target="_blank">
-          <v-btn class="info darken-2">
-            Click here to watch
-          </v-btn>
-        </a>
-      </v-row>
-
+    <div v-else :class="{'pb3': !copyright}">
+      <iframe
+        class="w-100 vh-50"
+        :src="url"
+        frameborder="0"
+      ></iframe>
     </div>
 
     <v-card-text v-show="!!copyright">
