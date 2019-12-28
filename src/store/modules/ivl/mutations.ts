@@ -7,7 +7,6 @@ export const mutations: MutationTree<IVLState> = {
     state.loading = true;
     state.error = false;
     state.errorMsg = '';
-    state.assetsInfo = null;
   },
 
   ivlError(state, errMsg: string) {
