@@ -7,6 +7,7 @@ export const mutations: MutationTree<IVLState> = {
     state.loading = true;
     state.error = false;
     state.errorMsg = '';
+    state.assetsInfo = null;
   },
 
   ivlError(state, errMsg: string) {
@@ -17,6 +18,7 @@ export const mutations: MutationTree<IVLState> = {
 
   loadInfo(state, info: Info) {
     state.currentInfo = info;
+    state.assetsInfo = null;
   },
 
   loadAssets(state, assets: object[]) {
