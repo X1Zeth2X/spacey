@@ -1,4 +1,4 @@
-import { ApiService, apiKey } from './api.service';
+import { ApiService } from './api.service';
 
 class IVLError extends Error {
   constructor(message: string) {
@@ -13,13 +13,14 @@ interface SearchParams {
   query: string;
   page: number;
   // description: string | null;
-  // keywords: string | null;
+  keywords?: string;
 }
 
 const IVLService = {
   async search(options: SearchParams) {
-    const resource: string = `https://images-api.nasa.gov/search?q=${options.query} \
-    &page=${options.page}`;
+    const resource: string = `https://images-api.nasa.gov/search?q=${options.query}\
+    &page=${options.page}\
+    &keywords=${options.keywords !== undefined ? options.keywords : ''}`;
 
     try {
       const response = await ApiService.get(resource);
@@ -29,6 +30,18 @@ const IVLService = {
       throw new IVLError(error.response.message);
     }
   }, // Search
+
+  async getAsset(id: string) {
+    const resource: string = `https://images-api.nasa.gov/asset/${id}`;
+
+    try {
+      const response = await ApiService.get(resource);
+
+      return response.data.collection.items;
+    } catch (error) {
+      throw new IVLError(error.response.message);
+    }
+  }, // Get Asset
 
   async getPopular() {
     const resource: string = 'https://images-assets.nasa.gov/popular.json';
