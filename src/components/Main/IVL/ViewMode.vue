@@ -11,7 +11,6 @@
   <v-card-actions>
     <div v-if="metadata" class="ml2">
       {{ metadata.total_hits }} Results.
-
     </div>
 
     <div v-else>
@@ -29,18 +28,16 @@
 
     <v-spacer></v-spacer>
 
-    <v-tooltip bottom
-      v-for="(view, index) in viewModes"
-      :key="index"
-    >
+    <v-tooltip bottom>
       <template v-slot:activator="{ on }">
         <v-btn v-on="on"
           icon
+          @click="toggleView"
         >
-          <v-icon>{{ view.icon }}</v-icon>
+          <v-icon>mdi-view-dashboard</v-icon>
         </v-btn>
       </template>
-      <span>{{ view.desc }}</span>
+      <span>Toggle viewing mode</span>
     </v-tooltip>
   </v-card-actions>
 </v-card>
@@ -70,15 +67,9 @@ export default class ViewMode extends Vue {
     return true;
   }
 
-  public viewModes: object[] = [
-    {
-      desc: 'List View',
-      icon: 'mdi-view-list',
-    },
-    {
-      desc: 'Grid View',
-      icon: 'mdi-view-grid',
-    },
-  ]
+  @Emit('toggleView')
+  public toggleView() {
+    return true;
+  }
 }
 </script>
