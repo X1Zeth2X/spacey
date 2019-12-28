@@ -5,11 +5,13 @@
   <ViewMode
     :view="view"
     :metadata="feed.metadata"
+
     v-on:viewPopular="loadPopular"
     v-on:viewRecent="loadRecent"
+    v-on:toggleView="toggleView"
   />
 
-  <IVLInfo/>
+  <IVLInfo v-on:updateFeed="updateFeed"/>
 
   <div class="text-center mt4"
     v-if="!ready"
@@ -40,10 +42,7 @@
     <div
       v-for="collection in items"
       :key="collection.data[0].nasa_id"
-    >
-      <ImageCard
-        :collection="collection"
-      />
+    ><ImageCard :collection="collection"/>
     </div>
   </masonry>
 </div>
@@ -60,6 +59,7 @@ import ViewMode from './IVL/ViewMode.vue';
 
 import IVLInfo from '@/components/Dialogs/IVLInfo.vue';
 
+import { SearchParams } from '@/services/ivl.service';
 import { Collection } from '@/store/modules/ivl/types';
 
 const namespace: string = 'ivl';
@@ -90,6 +90,8 @@ export default class IVL extends Vue {
 
   public view: string = 'popular';
 
+  public imageView: boolean = true;
+
   public beforeMount() {
     this.loadPopular();
   }
@@ -108,6 +110,10 @@ export default class IVL extends Vue {
       this.view = 'recent';
       this.updateFeed();
     }
+  }
+
+  public toggleView() {
+    this.imageView = !this.imageView;
   }
 
   public updateFeed() {
