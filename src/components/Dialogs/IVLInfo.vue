@@ -14,29 +14,11 @@
 
         <v-col cols="12"
           md="6"
-        >
-          <v-img
-            :src="media.href"
-            class="br4 elevation-5"
-          >
-            <v-row align="start" justify="space-between">
-              <v-btn
-                class="mt2 deep-purple"
-                @click="close"
-              >
-                <v-icon
-                >mdi-chevron-left</v-icon>
-                Back
-              </v-btn>
-
-              <v-btn
-                icon
-                class="mr3 mt2"
-              ><v-icon>mdi-menu</v-icon>
-              </v-btn>
-            </v-row>
-          </v-img>
-        </v-col>
+        ><InfoImage
+          :mainSrc="assets ? assets[0].href : ''"
+          :lazySrc="image.href"
+          :type="data.media_type"
+        /></v-col>
 
         <v-col cols="12"
           md="6"
@@ -82,8 +64,9 @@
                 <v-chip
                   v-for="(word, index) in data.keywords"
                   :key="index"
-                  color="teal"
-                  class="elevation-5 mr3 mb2"
+                  color="deep-purple"
+                  class="elevation-5 mr3 mb2 font-weight-bold"
+                  @click="searchKeyword(word)"
                 >{{ word }}
                 </v-chip>
               </v-expansion-panel-content>
@@ -97,23 +80,34 @@
 </template>
 
 <script lang="ts">
+/* eslint class-methods-use-this: ["error", { "exceptMethods": ["updateFeed"] }] */
+
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import moment from 'moment';
 import { Getter, Action } from 'vuex-class';
-import { Prop, Watch } from 'vue-property-decorator';
+import { Prop, Watch, Emit } from 'vue-property-decorator';
 
 import { Info } from '@/store/modules/ivl/types';
+import InfoImage from './IVLInfo/InfoImage.vue';
 
 const namespace: string = 'dialog';
 
-@Component
+@Component({
+  components: {
+    InfoImage,
+  },
+})
 export default class IVLInfo extends Vue {
   @Getter('IVLInfo', { namespace }) public show!: boolean;
 
   @Getter('currentInfo', { namespace: 'ivl' }) public info!: Info;
 
+  @Getter('assetsInfo', { namespace: 'ivl' }) public assets!: any;
+
   @Action('toggleIVLInfo', { namespace }) public close!: Function;
+
+  @Action('search', { namespace: 'ivl' }) public search!: Function;
 
   @Watch('info')
   onInfoChange(value: Info, oldValue: Info | null) {
@@ -122,7 +116,7 @@ export default class IVLInfo extends Vue {
 
   public data: object = {};
 
-  public media: object = {}
+  public image: object = {}
 
   public date: string = '';
 
@@ -132,17 +126,39 @@ export default class IVLInfo extends Vue {
 
   public setInfo() {
     if (this.info !== null) {
-      const data = this.info.data[0];
-      const media = this.info.links[0];
+      const data: any = this.info.data[0];
+      const image = this.info.links[0];
 
       this.data = data;
-      this.media = media;
+      this.image = image;
     }
   }
 
   public prettifyDate = (date: string): string => {
     const prettyDate: string = moment(date).format('MMM Do YYYY');
     return prettyDate;
+  }
+
+  @Emit('updateFeed')
+  public updateFeed() {
+    return true;
+  }
+
+  public async searchKeyword(word: string) {
+    // Search for the keyword
+    const params: object = {
+      query: '',
+      page: 1,
+      keywords: word,
+    };
+
+    const resp = await this.search(params);
+
+    if (resp) {
+      // Update the feed and close dialog
+      this.updateFeed();
+      this.close();
+    }
   }
 }
 </script>
