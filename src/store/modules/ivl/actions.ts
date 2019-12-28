@@ -21,8 +21,21 @@ export const actions: ActionTree<IVLState, RootState> = {
     }
   },
 
-  loadInfo({ commit }, info: Info) {
+  async loadInfo({ commit }, info: any) {
     commit('loadInfo', info);
+
+    try {
+      const id = info.data[0].nasa_id;
+      const assets = await IVLService.getAsset(id);
+      commit('loadAssets', assets);
+
+      return true;
+    } catch (error) {
+      if (error instanceof IVLError) {
+        commit('ivlError', error.message);
+      }
+      return false;
+    }
   },
 
   async getPopular({ commit }) {

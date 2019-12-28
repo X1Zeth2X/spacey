@@ -15,4 +15,8 @@ export const getters: GetterTree<IVLState, RootState> = {
   currentInfo(state): Info | null {
     return state.currentInfo;
   },
+
+  assetsInfo(state): object[] | null {
+    return state.assetsInfo;
+  },
 };

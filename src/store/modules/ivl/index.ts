@@ -9,6 +9,7 @@ import { actions } from './actions';
 export const state: IVLState = {
   feed: [],
   currentInfo: null,
+  assetsInfo: null,
 
   loading: false,
 

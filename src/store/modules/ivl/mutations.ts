@@ -19,6 +19,10 @@ export const mutations: MutationTree<IVLState> = {
     state.currentInfo = info;
   },
 
+  loadAssets(state, assets: object[]) {
+    state.assetsInfo = assets;
+  },
+
   requestSuccess(state, feed: Collection[]) {
     state.loading = false;
     state.feed = feed;

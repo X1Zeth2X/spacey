@@ -1,6 +1,7 @@
 interface IVLState {
   feed: Collection[];
   currentInfo: Info | null;
+  assetsInfo: object[] | null;
 
   loading: boolean;
   error: boolean;
