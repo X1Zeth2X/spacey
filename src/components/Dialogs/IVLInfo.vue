@@ -11,11 +11,9 @@
         justify="space-between"
         class="pa3"
       >
-
         <v-col cols="12"
           md="6"
         ><InfoImage
-          :mainSrc="assets ? assets[0].href : ''"
           :lazySrc="image.href"
           :type="data.media_type"
         /></v-col>
@@ -166,8 +164,7 @@ export default class IVLInfo extends Vue {
 <style lang="scss" scoped>
 #IVLInfo {
   background: #2b5876;  /* fallback for old browsers */
-  background-image: linear-gradient(to left bottom, #413c63, #624672, #844f7b, #a6587f, #c5647e);
-
+  background-image: linear-gradient(to right top, #221c4b, #3e2964, #5e347c, #814093, #a74aa8);
   border-radius: 3em 3em 0 0;
 
   .expansion-style {
