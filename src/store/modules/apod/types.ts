@@ -1,4 +1,3 @@
-
 export interface APODState {
   requesting: boolean;
   apod: object | null;
