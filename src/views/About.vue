@@ -29,7 +29,7 @@
         <li>
           Main page's information is from NASA's Open APIs.
           While Facts takes information from Spacey's own API which sends data collected from
-          other space information sites.
+          other space information sites. like <a href="">https://space-facts.com</a>.
         </li>
       </ul>
     </v-card-text>
