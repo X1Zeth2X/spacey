@@ -3,7 +3,9 @@
   <h1 class="display-2 font-weight-bold mb2">
     Cool Space Fact 👽
   </h1>
-  <p>Some random space facts that are cool *shrug*</p>
+  <p class="mw6 auto">
+    Some random space facts that are cool *shrug*,
+  </p>
 
   <FactCard/>
 
