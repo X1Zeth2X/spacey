@@ -6,6 +6,7 @@ import { RootState } from './types';
 import { apod } from './modules/apod/index';
 import { ivl } from './modules/ivl/index';
 import { dialog } from './modules/dialogs/index';
+import { facts } from './modules/facts/index';
 
 Vue.use(Vuex);
 
@@ -18,6 +19,7 @@ const store: StoreOptions<RootState> = {
     apod,
     dialog,
     ivl,
+    facts,
   },
 };
 

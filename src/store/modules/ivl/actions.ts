@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { ActionTree } from 'vuex';
-import { IVLState, Info } from './types';
+import { IVLState } from './types';
 import { RootState } from '@/store/types';
 import { IVLService, IVLError, SearchParams } from '@/services/ivl.service';
 
