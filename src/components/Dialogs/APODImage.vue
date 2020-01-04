@@ -1,7 +1,6 @@
 <template>
 <v-dialog
   :value.sync="show"
-  persistent
   width="785"
 >
   <v-card class="b-card">
@@ -10,15 +9,19 @@
       v-if="type === 'image'"
       :src="url"
     >
-    <template>
-      <v-row align="start" justify="end">
-        <v-btn icon class="teal mr3 mt2"
-          @click="toggleHDImage"
+      <template v-slot:placeholder>
+        <v-row
+          align="center"
+          justify="center"
+          class="fill-height"
         >
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
-      </v-row>
-    </template>
+          <v-progress-circular
+            indeterminate
+            width="5"
+            color="amber"
+          ></v-progress-circular>
+        </v-row>
+      </template>
     </v-img>
   </v-card>
 </v-dialog>
