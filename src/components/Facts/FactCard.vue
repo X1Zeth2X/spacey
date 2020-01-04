@@ -5,9 +5,7 @@
   color="#341270"
   elevation="10"
 >
-  <div v-if="currentFact !== undefined || !requesting"
-    :class="[{'pt3': !currentFact.title}]"
-  >
+  <div :class="[{'pt3': !currentFact.title}]">
     <v-card-title class="amber--text headline" v-show="currentFact.title">
       <v-spacer></v-spacer>
       {{ currentFact.title }}
@@ -21,19 +19,20 @@
       "{{ currentFact.content }}"
     </v-card-text>
 
-    <v-card-text>
-      Please note that our API sleeps when unused, so it might take a minute to wake up
-      to send your cool facts! More @ <a href="./about">About</a>.
-    </v-card-text>
+    <div v-show="!factsInfo">
+      <v-progress-circular
+        indeterminate
+        class="mv4 font-weight-black tc"
+        color="amber"
+        width="6"
+      ></v-progress-circular>
 
+      <v-card-text>
+        Please note that our API sleeps when unused, so it might take a minute to wake up
+        to send your cool facts! More @ <a href="./about">About</a>.
+      </v-card-text>
+    </div>
 
-    <v-progress-circular
-      v-show="factsInfo.length === 0"
-      indeterminate
-      class="mv4 font-weight-black tc"
-      color="amber"
-      width="6"
-    ></v-progress-circular>
   </div>
 
   <v-card-actions>
