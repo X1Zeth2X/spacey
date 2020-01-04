@@ -1,5 +1,9 @@
 <template>
-  <v-card class="b-card" elevation="10" color="#835961">
+  <v-card
+    :class="[{'pb4': !copyright}, 'b-card']"
+    elevation="10"
+    color="#835961"
+  >
     <APODImage
       :type="type"
       :url="hdurl"
@@ -25,13 +29,12 @@
       </template>
     </v-img>
 
-    <div v-else :class="{'pb3': !copyright}">
-      <iframe
-        class="w-100 vh-50"
-        :src="url"
-        frameborder="0"
-      ></iframe>
-    </div>
+    <iframe
+      v-else
+      class="w-100 vh-50"
+      :src="url"
+      frameborder="0"
+    ></iframe>
 
     <v-card-text v-show="!!copyright">
       Copyright: "{{ copyright }}"
